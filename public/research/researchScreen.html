@@ -1,0 +1,111 @@
+<!-- Tab panes -->
+<div class="tab-content data-tab no-padding"  ng-init="init()">
+    <div class="tab-pane fade  in active" id="reserach">
+		<div class="researchScreen" >
+			<div class="right-data-bar"> 
+				<div class="right-inner-bar">
+					<div class="select-symbol">
+						<div class="symbol-display-box form-group">
+							<div class="symbol" id="tickerName">APPLE</div>
+							<div class="company-name" id="tickerCompany">Company name</div>
+							
+						</div>
+						
+						<div class="form-group">
+							<div class="input-group col-xs-12 symbolDisplay">
+								<input type="text" placeholder="Current Symbol:" class="form-control typeahead" id="inputText">
+							</div>
+						</div>
+						
+					</div>
+					
+					
+					<div class="select-date">
+						<div class=" start-date">
+							<div class="row">   
+								<div class="col-xs-12">  <label >Start Date</label></div>
+								
+								<div class="col-xs-12">  <div class='input-group date'>
+									<input type='text' class="form-control startDate" placeholder="12/02/2015" />
+									<!--	<article>
+										<table class="datepickers-cont">
+										<tr>
+										<td>
+										</td>
+										</tr>
+										</table>
+									</article>-->
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+									
+								</div></div></div>
+								
+						</div>
+						
+						<div class=" end-date ">
+							<div class="row">   
+								<div class="col-xs-12">  <label >End Date</label></div>
+								
+								<div class="col-xs-12"> 
+									<div class='input-group date'>
+										<input type='text' class="form-control endDate" placeholder="12/02/2015" />
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+										
+									</div>  </div></div>
+									
+						</div>
+						<div class=" form-group ">
+							<div class="row ">
+								
+								
+								<div class="col-xs-12 form-group "><button type="button" class="btn btn-danger form-control"  id="updateChartData">  Go  </button></div>	
+							<div class="col-xs-12 "  ><button type="button" class="btn btn-primary form-control"  ng-click="reset()" id="resetChartData">  <i class="fa fa-clock-o"></i> Reset Timeline  </button></div></div> </div>
+							
+							
+							
+							
+					</div> 
+					
+					<div class="chart-type form-group">
+						
+						
+						<div class="row  voffset" > 
+							<div class="col-xs-6 " >  <label class="label-style">Line</label> </div>
+							<div class="col-xs-6" >  <label class="switch switch-green  " >
+								<input type="checkbox" class="switch-input"  ng-click="chartHideShow('hlcChart')" checked >
+								<span class="switch-label" data-on="Show" data-off="Hide"></span>
+								<span class="switch-handle"></span>
+							</label> </div></div>
+							
+							<div class="row voffset" > 
+								<div class="col-xs-6 " >  <label class="label-style" >Area</label> </div>
+								<div class="col-xs-6" >  <label class="switch switch-green  " >
+									<input type="checkbox" class="switch-input"  ng-click="chartHideShow('cmfChart')" checked>
+									<span class="switch-label" data-on="Show" data-off="Hide"></span>
+									<span class="switch-handle"></span>
+								</label> </div></div>
+								
+								
+								<div class="row voffset" > 
+									<div class="col-xs-6 " >  <label class="label-style" >Rect</label> </div>
+									<div class="col-xs-6" >  <label class="switch switch-green  " >
+										<input type="checkbox" class="switch-input" ng-click="chartHideShow('powerGaugeChart')" checked>
+										<span class="switch-label" data-on="Show" data-off="Hide"></span>
+										<span class="switch-handle"></span>
+									</label> </div></div>
+									
+									
+									
+					</div>           
+				</div>
+				
+			</div>
+			<div class="middle-data" id="chartArea" style="width:100%;height:570px;line-height:0px !important">  </div>
+			
+		</div>
+	</div>
+</div>
+</div>

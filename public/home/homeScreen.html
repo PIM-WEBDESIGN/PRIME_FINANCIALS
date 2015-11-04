@@ -1,0 +1,359 @@
+
+<div class="tab-pane fade  in active" ng-init="init()" style="padding:15px;">
+	<div class="homeScreen">
+		<div class="left-data-bar" ng-controller="topHoldingsController" ng-init="init()" style=" overflow:hidden;"> <div class="top-holdings" style = " overflow:hidden">
+			<div class="heading">Top Holdings  <a href="javascript:void(0);"><i class="bg-color pull-right fa fa-plus" ng-click="showSymbolList()"></i> </a>
+				<div class="addSymbolButton"  > 
+					<div class="form-group row"> <i class=" aerrow-left"> <img src="img/arrow-pop-left.png" alt="arrow-pop-left"/></i>
+						<div class="form-group symbolDisplay">
+						<input type="text"  class="typeahead form-control" > 	</div>
+						
+					</div>
+				</div>
+			</div>
+			<div class="top-holdings-module"  > 
+				<div ng-repeat = "symbolData in data track by $index">       
+					<div ng-class="getRowClass($index)">
+						<div class="col-xs-5 company-name">
+							<span class="symbol">{{symbolData.symbol}}</span> 
+							<span >{{companyNameMapping[symbolData.symbol]}}</span>
+							<div class="delete-list"><i class="fa fa-minus-square" ng-click="deleteSymbolFromList(data[$index]['symbol'])"></i></div>
+						</div>
+						<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+						<div ng-class="getTextColorClass('col-xs-2',symbolData.TextColor)">{{symbolData.CH}}</div>
+						<div class="col-xs-2 text-center"> <div class={{symbolData.upDown}}></div>
+						</div>
+					</div>
+				</div>
+				
+			</div>	
+		</div> </div>
+		<div class="middle-data" ng-controller="newsController" ng-init="init()"> <div class="breaking-news">
+			
+			<div class="heading">Breaking News</div>
+			<div class="breaking-news-module" >
+				<div ng-repeat ="news in breakingNews track by $index">	
+					<div ng-class="getRowClass($index)" ng-click="openFullNews($index)" >
+						<div class=" col-sm-2 col-xs-2 time"> {{news.date}}</div>
+						<div class=" col-sm-2 col-xs-2 name">{{news.source}}</div>
+						<div class=" col-sm-7 col-xs-7 ellipsis ">{{news.headLine}}</div>
+						<div class=" col-sm-1 col-xs-1"> <i class="fa fa-list-alt {{news.readClass}}"></i> </div>
+					</div>										
+				</div>
+			</div>
+			
+		</div> </div>
+		<div class="right-data-bar">
+			<div class="event-calendar">
+				<div class="heading">To Do</div>
+				<div class="event-module">
+					<div class="calendar-img"><div class="month">JUNE</div>
+						<div class="date">22</div>
+					<div class="day">MONDAY</div></div>
+					<ul class="chart-screen-list ">
+						<li><div class="row"><div class="col-xs-5 time-and-date"><i class="fa fa-clock-o" data-original-title="" title=""></i>
+							10:00 AM
+						</div> <div class="col-xs-7"><div class="heading">SCRUM MEETING <span class="content">Lets have a scrum meeting around 11.</span></div></div></div></li>
+						
+						<li><div class="row"><div class="col-xs-5 time-and-date"><i class="fa fa-clock-o" data-original-title="" title=""></i>
+							10:00 AM
+						</div> <div class="col-xs-7"><div class="heading">SCRUM MEETING <span class="content">Lets have a scrum meeting around 11.</span></div></div></div></li>
+						
+						
+						
+						
+					</ul>
+				</div>
+			</div> 
+		</div> 
+	</div>
+	
+	<div class="homeScreen" > 
+		
+		<div class="left-data-bar"> <div class="key-financial-data">
+			<div class="heading">Key Financial Data:</div> 
+			<div class="key-financial-data-module"> 
+				<ul class="tab-list" style="z-index:999999999;">
+					<li> <a href="" id="datalist1" class="active" ng-click="changeViewVal('majorIndices')" >Major Indices </a> </li>
+					<li> <a href="" id="datalist2" ng-click="changeViewVal('marketData')"> Market Data </a></li>
+					<li> <a href="" id="datalist3" ng-click="changeViewVal('marketIndicators')">Market Indicators </a></li>
+					<li> <a href="" id="datalist4" ng-click="changeViewVal('prattleIndicators')">Prattle Indicator </a></li>
+					<li> <a href="" id="datalist5" ng-click="changeViewVal('treasuryRates')">Treasury Rates </a></li>
+				</ul>
+				
+			</div></div>  </div>
+			<!-- ng switch -->
+			
+			<div class="middle-data" ng-switch on="view"> 	
+				<!-- MAJOR INDICES -->
+				<div class="financial-data"  ng-switch-when="majorIndices" ng-controller="majorIndicesController" ng-init="init()" >
+					
+					<div class="heading">Major Indices</div>
+					<div class="financial-data-module" >
+						
+						
+						<div style=" overflow:hidden" class="major-indices first">
+							
+							<div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+								<div ng-repeat = "symbolData in data1 track by $index">     
+									<div ng-class="getRowClass($index)">
+										
+										<div class="col-xs-5 company-name">
+											<div class={{symbolData.upDown}}></div>
+											<span class="symbol">{{symbolData.symbol}}</span> 
+											<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+											
+										</div>
+										<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+										<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div style=" overflow:hidden" class="major-indices first">
+							
+							<div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+								<div ng-repeat = "symbolData in data2 track by $index">     
+									<div ng-class="getRowClass($index)">
+										
+										<div class="col-xs-5 company-name">
+											<div class={{symbolData.upDown}}></div>
+											<span class="symbol">{{symbolData.symbol}}</span> 
+											<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+											
+										</div>
+										<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+										<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div style=" overflow:hidden" class="major-indices first">
+							<div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+								<div ng-repeat = "symbolData in data3 track by $index">     
+									<div ng-class="getRowClass($index)">
+										
+										<div class="col-xs-5 company-name">
+											<div class={{symbolData.upDown}}></div>
+											<span class="symbol">{{symbolData.symbol}}</span> 
+											<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+											
+										</div>
+										<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+										<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+				
+				<!-- Market Data -->
+				<div style=" overflow:hidden" class="major-indicators" ng-switch-when="marketData" ng-controller="marketDataController">
+					
+					<div class="heading">Market data..</div>
+					<div class="major-indicators-module" style="overflow: hidden;" tabindex="0">
+						<div class="row odd">
+							<!-- <div class="delete-list"><i ng-click="deleteSymbolFromList(data[$index]['symbol'])" class="fa fa-minus-square"></i></div> -->
+							<div class="col-xs-1  negative text-center">
+								<div class="down"></div>
+							</div>
+							<div class="col-xs-5 company-name"> <span class="symbol ng-binding">AAPL</span> <span class="ng-binding">AAPL INC</span>
+								
+							</div>
+							<div class="col-xs-3 negative ng-binding">126.75 </div>
+							<div class="col-xs-3 negative ng-binding">0.0000</div>
+							
+						</div>
+						
+						<div class="row even">
+							
+							<div class="col-xs-1  negative text-center">
+								<div class="down"></div>
+							</div>
+							<div class="col-xs-5 company-name"> <span class="symbol ng-binding">AAPL</span> <span class="ng-binding">AAPL INC</span>
+								
+							</div>
+							<div class="col-xs-3 negative ng-binding">126.75 </div>
+							<div class="col-xs-3 negative ng-binding">0.0000</div>
+							
+						</div>
+					</div>
+				</div>  
+				
+				<!-- Market indicators -->
+				<div class="financial-data" ng-switch-when="marketIndicators" ng-controller="marketIndicatorsController" ng-init="init()" >
+					
+					<div class="heading">Market Indicators</div>
+					<div class="market-data-module">
+						
+						
+						<div class="major-market-Indicaters" >
+							
+							<div class="inidicatorsLabel">NYSE ONLY</div>
+							<div ng-repeat="(key,value) in NYSE_ONLY  track by $index">
+								<div ng-class="getRowClass($index)">
+									<div class="col-sm-6">{{key}}</div>
+									<div class="col-sm-6">{{value}}</div>
+								</div>
+							</div>
+							
+							<div class="inidicatorsLabel">NYSE Composite</div>
+							
+							<div ng-repeat="(key,value) in NYSE_Composite  track by $index">
+								<div ng-class="getRowClass($index)">
+									<div class="col-sm-6">{{key}}</div>
+									<div class="col-sm-6">{{value}}</div>
+								</div>
+							</div>
+							
+							<div class="inidicatorsLabel">NASDAQ</div>
+							<div ng-repeat="(key,value) in NASDAQ  track by $index">
+								<div ng-class="getRowClass($index)">
+									<div class="col-sm-6">{{key}}</div>
+									<div class="col-sm-6">{{value}}</div>
+								</div>
+							</div>
+							
+							<div class="inidicatorsLabel">AMEX</div>
+							<div ng-repeat="(key,value) in AMEX  track by $index">
+								<div ng-class="getRowClass($index)">
+									<div class="col-sm-6">{{key}}</div>
+									<div class="col-sm-6">{{value}}</div>
+								</div>
+							</div>
+							
+							<div class="inidicatorsLabel">DJIA</div>
+							<div ng-repeat="(key,value) in DJIA  track by $index">
+								<div ng-class="getRowClass($index)">
+									<div class="col-sm-6">{{key}}</div>
+									<div class="col-sm-6">{{value}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Prattle Inidicators-->
+				<div style=" overflow:hidden" class="major-indicators" ng-switch-when="prattleIndicators" ng-controller="prattleIndicatorsController">
+					<div class="heading">Major indicators...</div>
+					<div class="major-indicators-module" style="overflow: hidden;" tabindex="0">
+						<div class="row odd">
+							<!--   <div class="delete-list"><i ng-click="deleteSymbolFromList(data[$index]['symbol'])" class="fa fa-minus-square"></i></div> -->
+							<div class="col-xs-1  negative text-center">
+								<div class="down"></div>
+							</div>
+							<div class="col-xs-5 company-name"> <span class="symbol ng-binding">AAPL</span> <span class="ng-binding">AAPL INC</span>
+								
+							</div>
+							<div class="col-xs-3 negative ng-binding">126.75 </div>
+							<div class="col-xs-3 negative ng-binding">0.0000</div>
+							
+						</div>
+						
+						<div class="row even">
+							
+							<div class="col-xs-1  negative text-center">
+								<div class="down"></div>
+							</div>
+							<div class="col-xs-5 company-name"> <span class="symbol ng-binding">AAPL</span> <span class="ng-binding">AAPL INC</span>
+								
+							</div>
+							<div class="col-xs-3 negative ng-binding">126.75 </div>
+							<div class="col-xs-3 negative ng-binding">0.0000</div>
+							
+						</div>
+					</div>
+				</div>  
+				<!-- Treasury Rates-->
+				<div style=" overflow:hidden" class="major-indicators" ng-switch-when="treasuryRates" ng-controller="treasuryRatesController">
+					<div class="heading">Major indicators...</div>
+					<div class="major-indicators-module" style="overflow: hidden;" tabindex="0">
+						<div class="row odd">
+							<!--  <div class="delete-list"><i ng-click="deleteSymbolFromList(data[$index]['symbol'])" class="fa fa-minus-square"></i></div> -->
+							<div class="col-xs-1  negative text-center">
+								<div class="down"></div>
+							</div>
+							<div class="col-xs-5 company-name"> <span class="symbol ng-binding">AAPL</span> <span class="ng-binding">AAPL INC</span>
+								
+							</div>
+							<div class="col-xs-3 negative ng-binding">126.75 </div>
+							<div class="col-xs-3 negative ng-binding">0.0000</div>
+							
+						</div>
+						
+						<div class="row even">
+							<div class="col-xs-1  negative text-center">
+								<div class="down"></div>
+							</div>
+							<div class="col-xs-5 company-name"> <span class="symbol ng-binding">AAPL</span> <span class="ng-binding">AAPL INC</span>
+								
+							</div>
+							<div class="col-xs-3 negative ng-binding">126.75 </div>
+							<div class="col-xs-3 negative ng-binding">0.0000</div>
+							
+						</div>
+					</div>
+				</div>  
+			</div>
+			
+			<div class="right-data-bar">
+				
+				<div id="accordion" class="panel-group accordionMenu">
+					<div class="panel panel-default" id="#topCustomer" ng-controller="topCustomersController" ng-init="init()">
+						<a data-toggle="collapse" data-target="#collapseOne" href="javascript:void(0);" >
+							<div class="panel-heading" >
+								<h4 class="panel-title" id="topCustomersBar">
+									Top Customers:
+								</h4>
+							</div>
+						</a>
+						<div id="collapseOne" class="panel-collapse collapse in" >
+							<div class="panel-body">
+								<ul class="top-customers-list" >
+									<li ng-repeat="customer in topCustomers"> 
+										<span> {{customer}}</span> 
+										<div class="logo">
+											<img ng-src= "img/topCustomers/{{customer}}.png" alt="sony"/>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="alerts">
+						<a data-toggle="collapse"  data-target="#collapseTwo" href="javascript:void(0);">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="color:#F00;" id="alertsBar">
+									Alerts <i class="fa fa-exclamation-triangle" style="color:#f8ad1f;"></i>
+									
+								</h4>
+							</div> </a>
+							<div id="collapseTwo" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<ul class="alerts-list">
+										<li><a href="#">Financial Reporting Alert 14-5,</a></li>
+										<li><a href="#">Financial Reporting Alert 14-5,</a></li>
+										<li><a href="#">Financial Reporting Alert 14-5,</a></li>
+									</ul>
+									
+								</div>
+							</div>
+					</div>
+					
+				</div>
+				
+				
+			</div>
+	</div>
+	
+	<div id="spinner" class="spinner" style="display:none;">
+		<img id="img-spinner" src="css/spinner.gif" alt="Loading"/>
+	</div>
+	
+	
+</div>

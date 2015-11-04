@@ -1,0 +1,973 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>PRIME FINANCIAL</title>
+		
+		
+		<!-- library  dependencies -->
+		<script type="text/javascript" src="lib/jquery.min.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/bootstrap.min.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/bootstrap.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/angular.min.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/jquery.nicescroll.min.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/typeahead.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/route.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/bloodhound.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/hogan.min.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/jquery-migrate-1.2.1.min.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/stomp.js?v=2.16"></script> 
+		<script type="text/javascript" src="lib/socket.io-1.2.0.js?v=2.16"></script>  
+		<script type="text/javascript" src="lib/d3.v2.min.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/jquery.ui.min.js?v=2.16"></script>
+		<script type="text/javascript" src="lib/stocChart.js?v=2.16"></script>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css?v=2.16">
+		<link rel="shortcut icon"  href="img/favicon.ico"/>
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<link id="theme" rel="stylesheet" href="css/style.css?v=2.16">
+		<!--	<link rel="stylesheet" href="css/style2.css?v=2.16"> -->
+		<link rel="stylesheet" href="css/stylesheet-check-box-css.css?v=2.16">
+		<link rel="stylesheet" href="css/jquerry.ui.css.css?v=2.16">
+		
+		
+		
+		
+		<!-- other js dependencies -->
+		<script type="text/javascript" src="js/constants.js?v=2.16"></script>
+		<script type="text/javascript" src="js/authentication.js?v=2.16"></script>
+		<script type="text/javascript" src="js/commonUtils.js?v=2.16"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js?v=2.16"></script>
+		<script type="text/javascript" src="js/networkController.js?v=2.16"></script>
+		<script type="text/javascript" src="js/socketClient.js?v=2.16"></script>  
+		<script type="text/javascript" src="js/ApiHandler.js?v=2.16"></script>  
+		<script type="text/javascript" src="js/toggleHandler.js?v=2.16"></script>  
+		<script type="text/javascript" src="js/HistoricalDataChart.js?v=2.16"></script>
+		<script type="text/javascript" src="js/StockMarketChartManager.js?v=2.16"></script>
+		<script type="text/javascript" src="js/ErrorFile.js?v=2.16"></script>
+		<script type="text/javascript" src="js/symbolsWithCompNames.js?v=2.16"></script>
+		
+		
+		
+		
+		
+		<!-- common util -->
+		<script type="text/javascript" src="mainAppControl/app.js?v=2.16"></script>
+		<script type="text/javascript" src="home/topHoldings/symbols.js?v=2.16"></script>
+		<script type="text/javascript" src="research/researchData_1yr.js?v=2.16"></script>
+		
+		
+		
+		
+		<!-- controller and services files -->
+		
+		<!-- mainAppController -->
+		<script type="text/javascript" src="mainAppControl/mainAppController.js?v=2.16"></script>	
+		<script type="text/javascript" src="mainAppControl/mainAppService.js?v=2.16"></script>	
+		
+		<!-- routing 	<script type="text/javascript" src="mainAppControl/routing.js?v=2.16"></script>
+		-->
+		<!-- login -->
+		<script type="text/javascript" src="login/loginController.js?v=2.16"></script>
+		<script type="text/javascript" src="login/loginService.js?v=2.16"></script>
+		
+		<!-- tabController -->
+		<script type="text/javascript" src="tabControls/tabController.js?v=2.16"></script>
+		<script type="text/javascript" src="tabControls/tabService.js?v=2.16"></script>
+		
+		<!-- home -->
+		<script type="text/javascript" src="home/homeScreenController.js?v=2.16"></script>
+		
+		<!-- top Holdings -->
+		
+		<script type="text/javascript" src="home/topHoldings/topHoldingsController.js?v=2.16"></script>
+		<script type="text/javascript" src="home/topHoldings/topHoldingsService.js?v=2.16"></script>
+		
+		<!-- news -->
+		<script type="text/javascript" src="home/breakingNews/newsController.js?v=2.16"></script>
+		<script type="text/javascript" src="home/breakingNews/newsService.js?v=2.16"></script>
+		
+		
+		<!-- todoController -->
+		
+		<script type="text/javascript" src="home/toDoList/toDoController.js?v=2.16"></script>
+		
+		
+		<!-- key Financial Data -->
+		
+		<!-- major indices  -->	
+		<script type="text/javascript" src="home/keyFinancialData/majorIndices/majorIndicesController.js?v=2.16"></script>	
+		<script type="text/javascript" src="home/keyFinancialData/majorIndices/majorIndicesService.js?v=2.16"></script>	
+		
+		<!-- market Data  -->	
+		<script type="text/javascript" src="home/keyFinancialData/marketData/marketDataController.js?v=2.16"></script>
+		
+		<!-- market Indicators  -->	
+		<script type="text/javascript" src="home/keyFinancialData/marketIndicators/marketIndicatorsController.js?v=2.16"></script>
+		<script type="text/javascript" src="home/keyFinancialData/marketIndicators/marketIndicatorsService.js?v=2.16"></script>
+		
+		<!-- prattle Indicators -->	
+		
+		<!-- treasury Rates  -->	
+		
+		
+		<!-- top customers -->
+		<script type="text/javascript" src="home/topCustomers/topCustomersController.js?v=2.16"></script>
+		<script type="text/javascript" src="home/topCustomers/topCustomersService.js?v=2.16"></script>	
+		
+		
+		<!-- research Screen -->
+		<script type="text/javascript" src="research/researhScreenController.js?v=2.16"></script>
+		<script type="text/javascript" src="research/researhScreenService.js?v=2.16"></script>
+		
+		<!-- portfolio Scree -->
+		<script type="text/javascript" src="portfolio/portfolioController.js?v=2.16"></script>
+		<script type="text/javascript" src="portfolio/portfolioService.js?v=2.16"></script>
+		
+		
+	</head>
+	
+	
+	<body ng-app="app" >
+		<div ng-controller="mainAppController">
+			<div ng-init="init()" ng-switch on="loginVal"> 
+				<div class="login-containor" ng-switch-when="false" ng-controller="loginController"  >
+					<div class="login-module" ng-init="init()">
+						
+						<div class="logo"> <img src="img/logo.png" alt="#"/>
+						</div>
+						
+						<form name="loginForm">
+							<div class="form-group">
+								<input type="text" class="form-control" ng-model="username" placeholder="Username">
+							</div>
+							
+							<div class="form-group">
+								<input type="password" class="form-control" ng-model="password" placeholder="Password">
+							</div>
+							
+							<div class="form-group">
+								<div class="row">
+									<div class="col-xs-6 checkboxStyle">
+										
+										<input id="checkbox2" type="checkbox" name="checkbox" value="1" ng-checked="rememberMeCheck" ng-model="rememberMeCheck" ng-click="(!rememberMeCheck)">
+										<label for="remember">Remember Me</label>
+										
+									</div> 
+									<div class="col-xs-6 "> 
+										<a class="password">Forgot Password ? </a>
+									</div> 
+								</div>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-danger form-control" ng-click="checkLogin()">Login </button>
+							</div>
+						</form>
+					</div>
+					
+				</div> 
+				
+				<div class="wapper" ng-switch-when="true" ng-controller="tabController" ng-init="init()">
+					
+					<div class="theme-options"  >
+						<!--
+							<select class="selectpicker" style="height:25px; width:150px;">
+							<option style="height:25px;" value="css/style.css">Dark Horse</option>
+							<option value="css/style2.css">Light ray</option>
+							
+							</select>
+						-->
+						
+						<div class="btn-group">
+							<button type="button" class="btn btn-danger" style="width:113px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="theme">{{theme}}</button>
+							<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<img src="img/theme-option-icon.png " alt="theme-option"/>
+							</button>
+							<ul class="dropdown-menu pull-left" >
+								<li><a ng-click="changeTheme('black','css/style.css')">Dark Horse</a></li>
+								<li><a ng-click="changeTheme('white','css/style2.css')">Light Ray</a></li>
+							</ul>
+						</div>
+					</div>	
+					<ul class="nav nav-tabs tab-navigation" >
+						
+						<li class="nav active"><a ng-click="changeView('homeDivViewer')">Home</a></li>
+						<li class="nav"><a ng-click="changeView('researchDivViewer')" >Research</a></li>
+						<li class="nav"><a ng-click="changeView('portfolioDivViewer')">Portfolio</a></li>
+						<li class="nav" ><a ng-click="changeView('instrumentDetails')" style="width : 200px">Instrument Details </a></li>
+						<li class="nav" ><a ng-click="changeView('screening')" style="width : 200px">Screening/Research </a></li>
+					</ul>
+					<!-- Tab panes -->
+					<!-- HOME SCREEN -->
+					
+					
+					<div class="tab-pane fade  in active" ng-controller="homeScreenController" ng-init="init()" style="padding:15px;" ng-show="homeDivViewer">
+						<div class="homeScreen">
+							<div class="left-data-bar" ng-controller="topHoldingsController" ng-init="init()" style=" overflow:hidden;"> <div class="top-holdings" style = " overflow:hidden">
+								<div class="heading">Top Holdings  <a href="javascript:void(0);"><i class="bg-color pull-right fa fa-plus" ng-click="showSymbolList()"></i> </a>
+									<div class="addSymbolButton"  > 
+										<div class="form-group row"> <i class=" arrow-left"></i>
+											<div class="form-group symbolDisplay">
+											<input type="text"  class="typeahead form-control" > 	</div>
+											
+										</div>
+									</div>
+								</div>
+								<div class="top-holdings-module"  > 
+									<div ng-repeat = "symbolData in data track by $index">       
+										<div ng-class="getRowClass($index)">
+											<div class="col-xs-5 company-name">
+												<span class="symbol">{{symbolData.symbol}}</span> 
+												<span >{{symbolsWithCompNames[symbolData.symbol]}}</span>
+												<div class="delete-list"><i class="fa fa-minus-square" ng-click="deleteSymbolFromList(data[$index]['symbol'])"></i></div>
+											</div>
+											<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+											<div ng-class="getTextColorClass('col-xs-2',symbolData.TextColor)">{{symbolData.CH}}</div>
+											<div class="col-xs-2 text-center"> <div class={{symbolData.upDown}}></div>
+											</div>
+										</div>
+									</div>
+									
+								</div>	
+							</div> </div>
+							<div class="middle-data" ng-controller="newsController" ng-init="init()"> <div class="breaking-news">
+								
+								<div class="heading">Breaking News</div>
+								<div class="breaking-news-module" >
+									<div ng-repeat ="news in breakingNews track by $index">	
+										<div ng-class="getRowClass($index)" ng-click="openFullNews($index)" >
+											<div class=" col-sm-3 col-xs-2 time"> {{news.date}}</div>
+											<div class=" col-sm-2 col-xs-2 name">{{news.source}}</div>
+											<div class=" col-sm-6 col-xs-7 ellipsis ">{{news.headLine}}</div>
+											<div class=" col-sm-1 col-xs-1"> <i class="fa fa-list-alt {{news.readClass}}"></i> </div>
+										</div>										
+									</div>
+								</div>
+								
+							</div> </div>
+							<div class="right-data-bar" ng-controller="toDoController" ng-init="init()">
+								<div class="event-calendar">
+									<div class="heading">To Do</div>
+									<div class="event-module">
+										<div class="calendar-img"><div class="month" ng-model="monthName">{{monthName}}</div>
+											<div class="date"  ng-model="monthDay">{{monthDay}}</div>
+										<div class="day"  ng-model="weekDayName">{{weekDayName}}</div></div>
+										<ul class="chart-screen-list ">
+											<li><div class="row"><div class="col-xs-5 time-and-date"><i class="fa fa-clock-o" data-original-title="" title=""></i>
+												10:00 AM
+											</div> <div class="col-xs-7"><div class="heading"> Appointment <span class="content"> Jim Fox - Proposal Review</span></div></div></div></li>
+											
+											<li><div class="row"><div class="col-xs-5 time-and-date"><i class="fa fa-clock-o" data-original-title="" title=""></i>
+												12:00 PM
+											</div> <div class="col-xs-7"><div class="heading">Call <span class="content">Katlin Smith - Rebalance Portfolio </span></div></div></div></li>
+											<li><div class="row"><div class="col-xs-5 time-and-date"><i class="fa fa-clock-o" data-original-title="" title=""></i>
+												5:00 PM
+											</div> <div class="col-xs-7"><div class="heading">New Client Proposal <span class="content">Mike Smith </span></div></div></div></li>											
+										</ul>
+									</div>
+								</div> 
+							</div> 
+						</div>
+						
+						<div class="homeScreen" style="margin-bottom : 0px"> 
+							
+							<div class="left-data-bar"> <div class="key-financial-data">
+								<div class="heading">Key Financial Data:</div> 
+								<div class="key-financial-data-module"> 
+									<ul class="tab-list" style="z-index:999999999;">
+										<li class="active" > <a href="" id="datalist1" ng-click="changeViewVal('majorIndices')" >Major Indices </a> </li>
+										<li> <a href="" id="datalist2" ng-click="changeViewVal('marketData')"> Market Data </a>
+											<ul>
+												
+												<li> <a href="#">Market Movers</a></li>
+												<li> <a href="#">Gainers </a></li>
+												<li> <a href="#">Losers</a></li>
+												<li> <a href="#">Commodities</a></li>
+												<li> <a href="#">Currencies</a></li>
+												<li> <a href="#">Sector Performance</a></li>
+												
+											</ul>	
+										</li>
+										<li> <a href="" id="datalist3" ng-click="changeViewVal('marketIndicators')">Market Indicators </a></li>
+										<li> <a href="" id="datalist4" ng-click="changeViewVal('prattleIndicators')">Prattle Indicator </a></li>
+										<li> <a href="" id="datalist5" ng-click="changeViewVal('treasuryRates')">Treasury Rates </a></li>
+									</ul>
+									
+								</div></div>  </div>
+								<!-- ng switch -->
+								
+								<div class="middle-data" ng-switch on="view"> 	
+									<!-- MAJOR INDICES -->
+									<div class="financial-data"  ng-switch-when="majorIndices" ng-controller="majorIndicesController" ng-init="init()" >
+										
+										<div class="heading ">Major Indices</div>
+										<div class="financial-data-module" >
+											
+											
+											<div style=" overflow:hidden" class="major-indices first">
+												
+												<div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+													<div ng-repeat = "symbolData in data1 track by $index">     
+														<div ng-class="getRowClass($index)">
+															
+															<div class="col-xs-5 company-name">
+																<div class={{symbolData.upDown}}></div>
+																<span class="symbol">{{symbolData.symbol}}</span> 
+																<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+																
+															</div>
+															<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+															<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div style=" overflow:hidden" class="major-indices first">
+												
+												<div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+													<div ng-repeat = "symbolData in data2 track by $index">     
+														<div ng-class="getRowClass($index)">
+															
+															<div class="col-xs-5 company-name">
+																<div class={{symbolData.upDown}}></div>
+																<span class="symbol">{{symbolData.symbol}}</span> 
+																<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+																
+															</div>
+															<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+															<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div style=" overflow:hidden" class="major-indices first">
+												<div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+													<div ng-repeat = "symbolData in data3 track by $index">     
+														<div ng-class="getRowClass($index)">
+															
+															<div class="col-xs-5 company-name">
+																<div class={{symbolData.upDown}}></div>
+																<span class="symbol">{{symbolData.symbol}}</span> 
+																<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+																
+															</div>
+															<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+															<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										
+									</div>
+									
+									<!-- Market Data -->
+									<div style=" overflow:hidden" class="financial-data" ng-switch-when="marketData" ng-controller="marketDataController">
+										
+										<div class="heading">Market data..</div>
+										<div class="major-indicators-module" style="overflow: hidden;" tabindex="0">
+											<div class="row odd">
+												<div class="col-lg-12" style=" padding: 5px 25px;">Coming Soon....</div>											
+											</div>
+										</div>
+									</div>  
+									
+									<!-- Market indicators -->
+									<div class="financial-data" ng-switch-when="marketIndicators" ng-controller="marketIndicatorsController" ng-init="init()" >
+										
+										<div class="heading">Market Indicators</div>
+										<div class="market-data-module">
+											
+											
+											<div class="major-market-Indicaters" >
+												
+												<div class="inidicatorsLabel">NYSE ONLY</div>
+												<div ng-repeat="(key,value) in NYSE_ONLY  track by $index">
+													<div ng-class="getRowClass($index)">
+														<div class="col-sm-6">{{key}}</div>
+														<div class="col-sm-6">{{value}}</div>
+													</div>
+												</div>
+												
+												<div class="inidicatorsLabel">NYSE Composite</div>
+												
+												<div ng-repeat="(key,value) in NYSE_Composite  track by $index">
+													<div ng-class="getRowClass($index)">
+														<div class="col-sm-6">{{key}}</div>
+														<div class="col-sm-6">{{value}}</div>
+													</div>
+												</div>
+												
+												<div class="inidicatorsLabel">NASDAQ</div>
+												<div ng-repeat="(key,value) in NASDAQ  track by $index">
+													<div ng-class="getRowClass($index)">
+														<div class="col-sm-6">{{key}}</div>
+														<div class="col-sm-6">{{value}}</div>
+													</div>
+												</div>
+												
+												<div class="inidicatorsLabel">AMEX</div>
+												<div ng-repeat="(key,value) in AMEX  track by $index">
+													<div ng-class="getRowClass($index)">
+														<div class="col-sm-6">{{key}}</div>
+														<div class="col-sm-6">{{value}}</div>
+													</div>
+												</div>
+												<!--
+													<div class="inidicatorsLabel">DJIA</div>
+													<div ng-repeat="(key,value) in DJIA  track by $index">
+													<div ng-class="getRowClass($index)">
+													<div class="col-sm-6">{{key}}</div>
+													<div class="col-sm-6">{{value}}</div>
+													</div>
+													</div>
+												-->
+											</div>
+										</div>
+									</div>
+									
+									<!-- Prattle Inidicators-->
+									<div style=" overflow:hidden" class="financial-data" ng-switch-when="prattleIndicators" ng-controller="prattleIndicatorsController">
+										<div class="heading">Prattle indicators...</div>
+										<div class="major-indicators-module" style="overflow: hidden;" tabindex="0">
+											<div class="row odd">
+												<div class="col-lg-12"  style=" padding: 5px 25px;">Coming Soon....</div>
+											</div>
+											
+										</div>
+									</div>  
+									<!-- Treasury Rates-->
+									<div style=" overflow:hidden" class="financial-data" ng-switch-when="treasuryRates" ng-controller="treasuryRatesController">
+										<div class="heading">Treasury Rates</div>
+										<div class="major-indicators-module" style="overflow: hidden;" tabindex="0">
+											<div class="row odd">
+												
+												<div class="col-lg-12"  style=" padding: 5px 25px;">Coming Soon....</div>	
+												
+											</div>
+											
+										</div>
+									</div>  
+								</div>
+								
+								<div class="right-data-bar">
+									
+									<div id="accordion" class="panel-group accordionMenu">
+										<div class="panel panel-default" id="#topCustomer" ng-controller="topCustomersController" ng-init="init()">
+											<a data-toggle="collapse" data-target="#collapseOne" href="javascript:void(0);" >
+												<div class="panel-heading" >
+													<h4 class="panel-title" id="topCustomersBar">
+														Top Customers:
+													</h4>
+												</div>
+											</a>
+											<div id="collapseOne" class="panel-collapse collapse in" >
+												<div class="panel-body">
+													<ul class="top-customers-list" >
+														<li ng-repeat="customer in topCustomers"> 
+															<span> {{customer["name"]}}</span> 
+															<div class="logo">
+																<!--<img ng-src= "img/topCustomers/{{customer}}.png" alt="sony"/>-->
+																<span class="text-info"> {{customer["value"]}}</span>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="panel panel-default" id="alerts">
+											<a data-toggle="collapse"  data-target="#collapseTwo" href="javascript:void(0);">
+												<div class="panel-heading">
+													<h4 class="panel-title" style="color:#F00;" id="alertsBar">
+														Alerts <i class="fa fa-exclamation-triangle" style="color:#f8ad1f;"></i>
+														
+													</h4>
+												</div> </a>
+												<div id="collapseTwo" class="panel-collapse collapse in">
+													<div class="panel-body">
+														<ul class="alerts-list">
+															<li><a href="#">IPS Violations!</a></li>
+															<li><a href="#">Email: Dowd Family</a></li>
+															<li><a href="#">Assistant Message:  Call John Dowd, interested in setting up Trust for son Tim.</a></li>
+														</ul>
+														
+													</div>
+												</div>
+										</div>
+										
+									</div>
+									
+									
+								</div>
+						</div>
+						
+						<div id="spinner" class="spinner" style="display:none;">
+							<img id="img-spinner" src="css/spinner.gif" alt="Loading"/>
+						</div>
+						
+						
+					</div>
+					<!-- RESEARCH SCREEN -->
+					
+					<div class="tab-content data-tab no-padding" ng-controller="researhScreenController" ng-init="init()" ng-show="researchDivViewer">
+						
+						<div class="tab-pane fade  in active" id="reserach">
+							<div class="researchScreen" >
+								<div class="right-data-bar"> 
+									<div class="right-inner-bar">
+										<!--
+										<div class="select-symbol">
+											<div class="symbol-display-box form-group">
+												<div class="symbol" id="tickerName">APPLE</div>
+												<div class="company-name" id="tickerCompany">Company name</div>
+												
+											</div>
+											
+											<div class="form-group">
+												<div class="input-group col-xs-12 researchSymbolDisplay">
+													<input type="text" placeholder="Current Symbol:" class="form-control typeahead" id="inputText">
+												</div>
+											</div>
+											
+										</div>
+										-->
+										
+										<div class="select-date">
+											<div class=" start-date">
+												<div class="row">   
+													<div class="col-xs-12">  <label >Start Date</label></div>
+													
+													<div class="col-xs-12">  <div class='input-group date'>
+														<input type='text' class="form-control startDate" placeholder="12/02/2015" />
+														<!--	<article>
+															<table class="datepickers-cont">
+															<tr>
+															<td>
+															</td>
+															</tr>
+															</table>
+														</article>-->
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-calendar"></span>
+														</span>
+														
+													</div></div></div>
+													
+											</div>
+											
+											<div class=" end-date ">
+												<div class="row">   
+													<div class="col-xs-12">  <label >End Date</label></div>
+													
+													<div class="col-xs-12"> 
+														<div class='input-group date'>
+															<input type='text' class="form-control endDate" placeholder="12/02/2015" />
+															<span class="input-group-addon">
+																<span class="glyphicon glyphicon-calendar"></span>
+															</span>
+															
+														</div>  </div></div>
+														
+											</div>
+											<div class=" form-group ">
+												<div class="row ">
+													
+													
+													<div class="col-xs-12 form-group "><button type="button" class="btn btn-danger form-control"  id="updateChartData">  Go  </button></div>	
+												<div class="col-xs-12 "  ><button type="button" class="btn btn-primary form-control"  ng-click="reset()" id="resetChartData">  <i class="fa fa-clock-o"></i> Reset Timeline  </button></div></div> </div>
+												
+												
+												
+												
+										</div> 
+										
+										<div class="chart-type form-group">
+											
+											
+											<div class="row  voffset" > 
+												<div class="col-xs-6 " >  <label class="label-style">DJIA vs S&P 500</label> </div>
+												<div class="col-xs-6" >  <label class="switch switch-green  " >
+													<input type="checkbox" class="switch-input"  ng-click="chartHideShow('hlcChart')" checked >
+													<span class="switch-label" data-on="Show" data-off="Hide"></span>
+													<span class="switch-handle"></span>
+												</label> </div></div>
+												
+												<div class="row voffset" > 
+													<div class="col-xs-6 " >  <label class="label-style" >Prattle Data</label> </div>
+													<div class="col-xs-6" >  <label class="switch switch-green  " >
+														<input type="checkbox" class="switch-input"  ng-click="chartHideShow('cmfChart')" checked>
+														<span class="switch-label" data-on="Show" data-off="Hide"></span>
+														<span class="switch-handle"></span>
+													</label> </div></div>
+													
+													<!--
+													<div class="row voffset" > 
+														<div class="col-xs-6 " >  <label class="label-style" >S&P 500</label> </div>
+														<div class="col-xs-6" >  <label class="switch switch-green  " >
+															<input type="checkbox" class="switch-input" ng-click="chartHideShow('powerGaugeChart')" checked>
+															<span class="switch-label" data-on="Show" data-off="Hide"></span>
+															<span class="switch-handle"></span>
+														</label> </div></div>
+													-->	
+														
+														
+										</div>           
+									</div>
+									
+								</div>
+								<div class="middle-data" id="chartArea" style="width:100%;line-height:0px !important;display:block;">  </div>
+								
+							</div>
+						</div>
+					</div>
+					
+					<!-- PORTFOLIO SCREEN -->
+					<div class="tab-pane fade  in active" ng-controller="portfolioController" ng-init="init()" ng-show="portfolioDivViewer">
+						<div class="portfolio">
+							<div class="left-data-bar">
+								<div class="add-portfolio">
+									
+									
+									<div class="input-group input-group-sm">
+										
+										<div class="icon-addon addon-sm">
+											<input type="text" placeholder="Add Portfolio" class="form-control" ng-model="portfolioName">
+											
+										</div>
+										<span class="input-group-btn">
+											<i class="bg-color pull-right fa fa-plus" ng-click="addPortfolio()" > </i>
+										</span>
+									</div>
+									
+									
+								</div>
+								<div class="portfolio-list">
+									<ul id ="portfolio_list" style = "height: 530px ; overflow : hidden">
+										<div ng-repeat="(key,value) in portfolioListArray track by $index">
+											<li ng-click="changeViewOfportfolio(key)" id={{key}}> <a>{{value.portfolio_name}}
+												<i class="fa fa-trash-o text-right" ng-click="deletePortfolio(key,$event)"></i> 
+												<i class="fa fa-pencil-square text-right" ng-click = "editPortfolio(key,$event)"></i>
+											</a>
+											<!--<a ng-click="editPortfolio(portfolio.id,$event)" style="color :  white"> EDIT </a>-->	
+											</li>
+										</div>
+									</ul>
+								</div>
+							</div>
+                            
+							<div class="middle-data" ng-show="middlePortfolioView">
+								<div id="treeContainer" style="height:100% ; display: block ; "> </div>
+								<div id="portfoliosContainer" style="height:100% ; display: none"> 
+									
+									<div class="row">
+										<div class="col-md-8 col-sm-12"  > 
+											<div class="row ">
+												<div class="col-xs-9">
+												<div class="heading-text"  ng-model="headingName">{{headingName}}</div> </div>
+											<div class="col-xs-3"><button class="btn btn-danger  btn-sm btn-reset" ng-click="resetView()">Back to summary</button>  </div></div>
+											<div class="performance-heat-map"><div class="heading">Performance Heat Map</div>
+												<!--  <div class="form-group" style="margin:30px 0 30px 0;">
+													<label class="control-label top-padding col-xs-2 text-right" >View</label>
+													<div class="col-xs-5">          
+													<select class="form-control select-box-style" >
+													<option>Sector</option>
+													<option>Sector</option>
+													<option>Sector</option>
+													<option>Sector</option>
+													</select>
+													</div>
+												</div> -->
+												
+												<div class="sector-list">
+													
+													<div class="row" ng-repeat ="(key, value) in Industries track by $index">
+														<div class="col-xs-3 sector-name" >{{key}}
+														</div>
+														
+														<div class="col-xs-2 col-style" id="{{key}}D1">
+															<div class="sector-list-box" ng-style="getStyle(value.D1)"> {{value.D1}}
+															</div>
+														</div>
+														<div class="col-xs-2 col-style" id="{{key}}D5" >
+															<div class="sector-list-box" ng-style="getStyle(value.D5)"> {{value.D5}}
+															</div>
+														</div>
+														<div class="col-xs-2 col-style" id="{{key}}M1">
+															<div class="sector-list-box" ng-style="getStyle(value.M1)">{{value.M1}}
+															</div>
+														</div>
+														<div class="col-xs-2 col-style" id="{{key}}Y1">
+															<div class="sector-list-box" ng-style="getStyle(value.Y1)">{{value.Y1}}
+															</div>
+														</div>
+														
+													</div>
+													<div class="row heat-map-label ">
+														<div class="col-xs-3 sector-name "></div>
+														<div class="col-xs-2 col-style"> <div class="time"> 1 Day </div> </div>
+														<div class="col-xs-2 col-style"> <div class="days">5 Day </div></div>
+														<div class="col-xs-2 col-style"> <div class="months">1 Month </div></div>
+														<div class="col-xs-2 col-style"> <div class="years">1 Year </div></div>
+													</div> 
+													
+													<div class = "row ">
+														<div class=" col-xs-push-3 col-xs-8" id="gradientContainer" style="height : 30px; padding : 0">
+															
+														</div>
+													</div>
+												</div>
+												
+												
+											</div>
+											
+										</div> 
+										
+										<div class="col-md-4 col-sm-12 ">
+											<div class="pie-chart-container">
+												<div class="heading"> Top 5 Industries</div>
+												<div class="pie-chart-box" id="pieChartContainer"></div>
+											</div>
+											
+											<div class="holding-container">
+												<!--
+												<div class="form-group" >
+													<div class="input-group col-xs-12 portfolioSymbolDisplay">
+														<input type="text" placeholder="Add symbol in current portfolio" class="form-control typeahead" id="portfolioSymbolInput">
+													</div>
+												</div>
+												-->
+												<div class="row heading">
+													<div class="col-xs-4">Symbol </div>
+													<div class="col-xs-2">  T</div>
+													<div class="col-xs-3">  Last </div>
+													<div class="col-xs-3">Chg</div>
+												</div>
+												
+												<div class="holding-container-module" >
+													<div ng-repeat="(key,value) in portfolioSymbolDataSource track by $index">
+														<div ng-class="getRowClass($index)">
+															<div class="col-xs-4 company-name">
+																<span class="symbol ng-binding">{{key}}</span> 
+																<div class="delete-list"><i class="fa fa-minus-square" ng-click="deleteSymbolFromList(key)"></i></div>
+															</div>
+															<div class="col-xs-2 text-center"> <div class={{mainDataSource[key].upDown}}></div>
+															</div>
+															<div  ng-class="getTextColorClass('ng-binding  col-xs-3',mainDataSource[key].TextColor)">{{mainDataSource[key].LV}} </div>
+															<div ng-class="getTextColorClass('ng-binding  col-xs-3',mainDataSource[key].TextColor)">{{mainDataSource[key].CH}}</div>
+															
+														</div>
+													</div>
+												</div>            
+											</div>
+										</div>
+									<div></div></div>
+								</div>
+							</div>
+							<div class="middle-data"  ng-hide="middlePortfolioView">
+								<div class="portfolio-edit"  >
+									<div class="row">
+										<div class="col-md-8 col-sm-12">
+											<div class="portfolio-edit-list">
+												<!--	<div class="row">
+													<div class="col-sm-4 select-style">
+													<select name="select" class="form-control">
+													<option>Opetin </option>
+													<option>Opetin </option>
+													<option>Opetin </option>
+													<option>Opetin </option>
+													</select>
+													</div>
+													<div class="col-sm-4">
+													<button class="btn btn-success btn-sm">Save</button>
+													</div>
+													<div class="col-sm-4 pull-right text-right">
+													<button class="btn btn-warning btn-sm">Import Portfolio</button>
+													</div>
+												</div> -->
+												<div class="row  heading-style  ">
+												<div class="col-xs-5">    <input type="text" class="portfolio_input form-control" ng-model="headingName"> </div>
+                                         
+                                                 <div class="col-xs-7  text-right" > <span class="btn btn-success btn-sm btn-file">
+   <i class="fa fa-arrow-circle-o-down"></i>  IMPORT
+   
+   <input type="file" id="importFile" accept=".csv"/>
+											  </span> &nbsp; <button class="btn btn-danger  btn-sm btn-reset" ng-click="resetView()">Back to summary</button></div></div>
+                                                
+                                                
+												<div class="row heading ">
+													<div class="col-xs-3 col-border text-center">Ticker</div>
+													<div class="col-xs-2 col-border text-center">Shares	</div>
+													<div class="col-xs-3 col-border text-center">Last/Close</div>
+													<div class="col-xs-4 col-border text-center">Portfolio Net</div>
+													
+												</div>
+												<div class="portfolio-table-list">
+													<div ng-repeat ="(key,value) in portfolioSymbolDataSource track by $index">
+														<div ng-class="getRowClass($index)">
+															<div class="col-xs-3 col-border text-left" >{{key}}</div>
+															<div class="col-xs-2 col-border text-right">
+																<input type="text" class="value-edit-input" ng-model="portfolioSymbolDataSource[key]">
+															</div>
+															<div class="col-xs-3 col-border text-right"><span class="dollar pull-left">$</span><span class="text-right pull-right" >{{mainDataSource[key].LV}}</span></div>
+															<!--<div class="col-xs-4 col-border "><span class="dollar pull-left">$</span> <span ng-show="checkUndefinedvalue(mainDataSource[key].LV)" ng-init="" class="text-right pull-right"  ng-bind="mainDataSource[key].LV *  value" ></span></div>-->
+															<div class="col-xs-4 col-border "><span class="dollar pull-left">$</span> <span ng-show="checkUndefinedvalue(mainDataSource[key].LV)" class="text-right pull-right"  ng-bind="parseFloatMultiplication(mainDataSource[key].LV,value)" ></span></div>
+															
+														</div>
+													</div>
+													
+												</div>
+                                               	<div class="portfolio-total form-group">
+													<div class="row  even">
+														<div class="col-xs-3 col-border text-left">Total</div>
+														<div class="col-xs-2 col-border text-right"> &nbsp;</div>
+														<div class="col-xs-3 col-border text-right">&nbsp;</div>
+														<div class="col-xs-4 col-border "><span class="dollar pull-left">$</span> <span class="text-right pull-right" ng-model="totalValue">{{totalValue}}</span></div>
+														
+													</div> 
+												</div>
+												
+												<div class="row text-right">
+													<button class="btn btn-danger btn-sm" ng-click="savePortfolioData()"> Save</button>
+												</div>
+											</div>
+											
+										</div>
+										<div class="col-md-4 col-sm-12   ">
+											<div class="chart-container" >
+													<div class="heading">Top 5 Industries</div>
+													<div class="chart-box" id="donutChartContainer"></div>
+												</div>  
+												
+											<div class="holding-container">
+												
+												<div class="form-group" >
+													<div class="input-group col-xs-12 portfolioSymbolDisplay">
+														<input type="text" placeholder="Add symbol in current portfolio" class="form-control typeahead" id="portfolioSymbolInput">
+													</div>
+												</div>
+												
+												<div class="row heading">
+													<div class="col-xs-4">Symbol </div>
+													<div class="col-xs-2">  T</div>
+													<div class="col-xs-3">  Last </div>
+													<div class="col-xs-3">Chg</div>
+												</div>
+												
+												<div class="holding-container-module" >
+													<div ng-repeat="(key,value) in portfolioSymbolDataSource track by $index">
+														<div ng-class="getRowClass($index)">
+															<div class="col-xs-4 company-name">
+																<span class="symbol ng-binding">{{key}}</span> 
+																<div class="delete-list"><i class="fa fa-minus-square" ng-click="deleteSymbolFromList(key)"></i></div>
+															</div>
+															<div class="col-xs-2 text-center"> <div class={{mainDataSource[key].upDown}}></div>
+															</div>
+															<div  ng-class="getTextColorClass('ng-binding  col-xs-3',mainDataSource[key].TextColor)">{{mainDataSource[key].LV}} </div>
+															<div ng-class="getTextColorClass('ng-binding  col-xs-3',mainDataSource[key].TextColor)">{{mainDataSource[key].CH}}</div>
+															
+														</div>
+													</div>
+												</div>            
+											</div>
+										</div>
+										
+									<!--	<div class="col-sm-4 col-xs-12">
+											<div class="composition-changes">
+												<!--	<div class="form-group col-xs-8 select-style" >
+													<select name="select" class="  form-control  ">
+													<option>Opetin </option>
+													<option>Opetin </option>
+													<option>Opetin </option>
+													<option>Opetin </option>
+												</select> </div> 
+												
+												<div class="chart-container" >
+													<div class="heading">Top 5 Industries</div>
+													<div class="chart-box" id="donutChartContainer"></div>
+												</div>    
+												
+												
+											</div>
+											<div class="holding-container">
+													
+													<div class="form-group" >
+														<div class="input-group col-xs-12 portfolioSymbolDisplay">
+															<input type="text" placeholder="Add symbol in current portfolio" class="form-control typeahead" id="portfolioSymbolInput">
+														</div>
+													</div>
+													
+													<div class="row heading">
+														<div class="col-xs-4">Symbol </div>
+														<div class="col-xs-2">  T</div>
+														<div class="col-xs-3">  Last </div>
+														<div class="col-xs-3">Chg</div>
+													</div>
+													
+													<div class="holding-container-module" >
+														<div ng-repeat="(key,value) in portfolioSymbolDataSource track by $index">
+															<div ng-class="getRowClass($index)">
+																<div class="col-xs-4 company-name">
+																	<span class="symbol ng-binding">{{key}}</span> 
+																	<div class="delete-list"><i class="fa fa-minus-square" ng-click="deleteSymbolFromList(key)"></i></div>
+																</div>
+																<div class="col-xs-2 text-center"> <div class={{mainDataSource[key].upDown}}></div>
+																</div>
+																<div  ng-class="getTextColorClass('ng-binding  col-xs-3',mainDataSource[key].TextColor)">{{mainDataSource[key].LV}} </div>
+																<div ng-class="getTextColorClass('ng-binding  col-xs-3',mainDataSource[key].TextColor)">{{mainDataSource[key].CH}}</div>
+																
+															</div>
+														</div>
+													</div>            
+												</div>
+										</div> -->
+									</div>
+								</div>
+								
+							</div>
+                            
+						</div>
+					</div>
+					
+					<div class="tab-pane fade  in active instrumentDetails"   ng-show="instrumentDetails">  </div>
+					<div class="tab-pane fade  in active screeningResearch"   ng-show="screening"></div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div id="breakingNewPopup" class="modal fade"  >
+		<div class="modal-dialog" style="max-width:800px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					
+				</div>
+				<div class="modal-body" style=" height:500px;" >
+					<iframe id="iframe" name="iframe1" width="100%" height="100%; "border="0" src=''></iframe>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+<script>
+	$(document).ready(function(){
+		$("chart-type ul li").click(function(){
+			$("chart-type ul li a").addClass("current");
+			$("chart-type ul li a").removeClass("current");
+		});
+	});
+</script>
+
+</html>

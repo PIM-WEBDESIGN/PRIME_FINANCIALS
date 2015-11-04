@@ -1,0 +1,96 @@
+<!-- <div style=" overflow:hidden" class="major-indices"  ng-init="init()">
+ <div class="financial-data">
+ <div class="heading" >Major indices...</div>
+ <div class = "financial-data-model" >
+  <div class="major-indices-module" style="overflow: hidden;"  tabindex="0" >
+	<div ng-repeat = "symbolData in data track by $index">       
+		<div class="row odd">
+			<div class="col-xs-2  negative text-center"> <div class={{symbolData.upDown}}></div>
+			</div>
+			<div class="col-xs-5 company-name">
+				<span class="symbol">{{symbolData.symbol}}</span> 
+				<span >{{companyNameMapping[symbolData.symbol]}}</span>
+				<div class="delete-list"><i class="fa fa-minus-square" ></i></div>
+			</div>
+			<div class="col-xs-3 negative">{{symbolData.LV}} </div>
+			<div class="col-xs-2 negative">{{symbolData.CH}}</div>
+			
+		</div>
+	</div>
+	</div>
+  </div>
+  </div>
+</div>  
+
+
+
+-->
+
+<div class="financial-data" ng-init="init()" >
+
+<div class="heading">Major Indices</div>
+<div class="financial-data-module" >
+
+
+<div style=" overflow:hidden" class="major-indices first">
+
+  <div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+    <div ng-repeat = "symbolData in data1 track by $index">     
+	<div ng-class="getRowClass($index)">
+   
+      <div class="col-xs-5 company-name">
+                <div class={{symbolData.upDown}}></div>
+				<span class="symbol">{{symbolData.symbol}}</span> 
+				<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+				
+			</div>
+			<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+			<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div style=" overflow:hidden" class="major-indices first">
+
+  <div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+    <div ng-repeat = "symbolData in data2 track by $index">     
+	<div ng-class="getRowClass($index)">
+   
+      <div class="col-xs-5 company-name">
+                <div class={{symbolData.upDown}}></div>
+				<span class="symbol">{{symbolData.symbol}}</span> 
+				<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+				
+			</div>
+			<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+			<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div style=" overflow:hidden" class="major-indices first">
+  <div class="major-indices-module" style="overflow: hidden;" tabindex="0">
+    <div ng-repeat = "symbolData in data3 track by $index">     
+	<div ng-class="getRowClass($index)">
+  
+      <div class="col-xs-5 company-name">
+                <div class={{symbolData.upDown}}></div>
+				<span class="symbol">{{symbolData.symbol}}</span> 
+				<span >{{majorIndicesMapping[symbolData.symbol]}}</span>
+				
+			</div>
+			<div ng-class="getTextColorClass('col-xs-3',symbolData.TextColor)">{{symbolData.LV}} </div>
+			<div ng-class="getTextColorClassBtn('col-xs-4',symbolData.TextColor)">{{symbolData.CH}}</div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>  

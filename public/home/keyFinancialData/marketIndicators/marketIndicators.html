@@ -1,0 +1,51 @@
+<div class="financial-data" ng-init="init()" >
+	
+	<div class="heading">Market Indicators</div>
+	<div class="market-data-module">
+		
+		
+		<div class="major-market-Indicaters" ng-init="init()">
+			
+			<div class="inidicatorsLabel">NYSE ONLY</div>
+			<div ng-repeat="(key,value) in NYSE_ONLY  track by $index">
+				<div ng-class="getRowClass($index)">
+					<div class="col-sm-6">{{key}}</div>
+					<div class="col-sm-6">{{value}}</div>
+				</div>
+			</div>
+			
+			<div class="inidicatorsLabel">NYSE Composite</div>
+			
+			<div ng-repeat="(key,value) in NYSE_Composite  track by $index">
+				<div ng-class="getRowClass($index)">
+					<div class="col-sm-6">{{key}}</div>
+					<div class="col-sm-6">{{value}}</div>
+				</div>
+			</div>
+			
+			<div class="inidicatorsLabel">NASDAQ</div>
+			<div ng-repeat="(key,value) in NASDAQ  track by $index">
+				<div ng-class="getRowClass($index)">
+					<div class="col-sm-6">{{key}}</div>
+					<div class="col-sm-6">{{value}}</div>
+				</div>
+			</div>
+			
+			<div class="inidicatorsLabel">AMEX</div>
+			<div ng-repeat="(key,value) in AMEX  track by $index">
+				<div ng-class="getRowClass($index)">
+					<div class="col-sm-6">{{key}}</div>
+					<div class="col-sm-6">{{value}}</div>
+				</div>
+			</div>
+			
+			<div class="inidicatorsLabel">DJIA</div>
+			<div ng-repeat="(key,value) in DJIA  track by $index">
+				<div ng-class="getRowClass($index)">
+					<div class="col-sm-6">{{key}}</div>
+					<div class="col-sm-6">{{value}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
